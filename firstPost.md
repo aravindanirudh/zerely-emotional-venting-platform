@@ -3,8 +3,8 @@
 - Post title: `First vent post - keeping it positive!`
 - Post contents:
     ```
-    Hello! 
-    This is your space to share whatever is on your mind, your thoughts, feelings, stories, or reflections. Speak freely and authentically.
+    Hello!
+    This is your space to share whatever is on your mind - your thoughts, feelings, stories, or reflections - openly/frankly/freely.
     - No judgements.
     - Let your thoughts flow without hesitation.
     - Release the emotions or burdens you’ve been carrying.

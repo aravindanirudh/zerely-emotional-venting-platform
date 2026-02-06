@@ -94,9 +94,9 @@ const CommentSection = ({ postId }) => {
         </form>
       ) : (
         <div className="bg-gray-50 dark:bg-dark-hover p-4 rounded-lg text-center mb-8">
-          <p className="text-gray-600 dark:text-gray-300">
-            <Link to="/login" className="text-primary-600 hover:underline">Log in</Link> or{' '}
-            <Link to="/register" className="text-primary-600 hover:underline">Sign up</Link> to join the conversation.
+          <p className="text-black dark:text-white">
+            <Link to="/login" className="text-gray-400 hover:underline">Log in</Link> or{' '}
+            <Link to="/register" className="text-gray-400 hover:underline">Sign up</Link> to join the conversation!
           </p>
         </div>
       )}
@@ -108,7 +108,7 @@ const CommentSection = ({ postId }) => {
       ) : (
         <div className="space-y-6">
           {rootComments.length === 0 ? (
-            <p className="text-center text-gray-500 py-4">No comments yet. Be the first to support!</p>
+            <p className="text-center text-white py-4">No comments yet. Be the first to support!</p>
           ) : (
             rootComments.map(comment => (
               <CommentCard

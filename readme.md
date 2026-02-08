@@ -108,16 +108,16 @@ npm run dev
 
 ```
 exhale-website/
-├── backend/                 # Node.js/Express Backend
-│   ├── config/              # Database connection
-│   ├── controllers/         # Request logic
-│   ├── middleware/          # Auth, Error handling, Rate limiting
-│   ├── models/              # Mongoose schemas (User, Post, Comment)
-│   ├── routes/              # API Routes
-│   ├── utils/               # Helper functions
-│   └── server.js            # Entry point
+├── backend/                 # Node.js/Express backend
+│   ├── config/              # Database connection file
+│   ├── controllers/         # Request logic - each controller processes incoming data, interacts with models, and sends responses back to the client
+│   ├── middleware/          # Functions that execute between receiving a request and sending a response. Includes authentication checks (verifying JWT tokens), error handling, eate limiting to prevent abuse
+│   ├── models/              # Mongoose schemas (User, Post, Comment) that define what fields each document can have and their validation rules
+│   ├── routes/              # API Routes - Maps HTTP endpoints to controller functions. Defines API structure (like /api/users, /api/posts) and connects URLs to the appropriate controller logic
+│   ├── utils/               # Helper functions such as token generation, password hashing helpers, or email validation functions
+│   └── server.js            # Entry point that starts Express server, connects middleware, routes, and initializes the database connection
 │
-├── frontend/                # React Frontend
+├── frontend/                # React frontend
 │   ├── src/
 │   │   ├── components/      # Reusable UI components
 │   │   ├── context/         # Auth & Theme context

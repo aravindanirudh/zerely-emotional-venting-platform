@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { postService } from '../services/postService';
-import MoodSelector, { MOODS } from '../components/posts/MoodSelector';
-import { toast } from 'sonner';
-import { Loader2, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'; // React hook managing component state
+import { useNavigate } from 'react-router-dom'; // React Router hook for programmatic navigation
+import { useAuth } from '../context/AuthContext'; // Custom hook to access authentication context (current user info)
+import { postService } from '../services/postService'; // Service module for handling API calls related to posts (e.g., creating a new post)
+import MoodSelector, { MOODS } from '../components/posts/MoodSelector'; // Custom component for selecting a mood, along with a constant array of mood options
+import { toast } from 'sonner';  // Library for showing toast notifications to the user (e.g., success or error messages)
+import { Loader2, ArrowLeft } from 'lucide-react'; // Icon components from the Lucide icon library, used for showing a loading spinner and a back arrow in the UI
+import { Link } from 'react-router-dom'; // React Router component for creating links that navigate to different routes in the application (for example, "Back to Wall" link)
 
 const CreatePostPage = () => {
   const navigate = useNavigate();

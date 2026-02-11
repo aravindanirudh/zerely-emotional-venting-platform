@@ -71,6 +71,7 @@ function App() {
                 </AdminRoute>
               }
             />
+            {/* Redirect to NotFoundPage if user goes to any invalid URL */}
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

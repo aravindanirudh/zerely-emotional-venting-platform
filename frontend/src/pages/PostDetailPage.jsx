@@ -8,22 +8,24 @@ import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
 
 const PostDetailPage = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Get post ID from URL params
   const navigate = useNavigate();
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState(null); // State to hold post data
   const [loading, setLoading] = useState(true);
 
+  // Fetch post details on component mount and when ID changes (dependency array)
   useEffect(() => {
     fetchPost();
   }, [id]);
 
+  // Function to fetch post details from the server
   const fetchPost = async () => {
     try {
       setLoading(true);
-      const response = await postService.getPostById(id);
-      setPost(response.data);
+      const response = await postService.getPostById(id); // API call to get post details by ID
+      setPost(response.data); // Update state with fetched post data
     } catch (error) {
-      toast.error('Failed to load post');
+      toast.error('Failed to load post'); // Show error message if fetching fails
       navigate('/wall');
     } finally {
       setLoading(false);
@@ -31,11 +33,11 @@ const PostDetailPage = () => {
   };
 
   const handleDelete = async () => {
-    if (!window.confirm('Are you sure you want to delete this post?')) return;
+    if (!window.confirm('Are you sure you want to delete this post?')) return; // Confirm deletion with the user
     try {
-      await postService.deletePost(id);
-      toast.success('Post deleted');
-      navigate('/wall');
+      await postService.deletePost(id); // API call to delete the post by ID
+      toast.success('Post deleted'); // Show success message on successful deletion
+      navigate('/wall'); // Redirect back to the wall after deletion
     } catch (error) {
       toast.error('Failed to delete post');
     }
@@ -43,7 +45,8 @@ const PostDetailPage = () => {
 
   const handleReact = async (postId, emoji) => {
     try {
-      const response = await postService.reactToPost(postId, emoji);
+      const response = await postService.reactToPost(postId, emoji); // API call to react to the post with the specified emoji
+      // Update the post's reaction counts in the state with the new counts from the response
       setPost(prev => ({
         ...prev,
         reactionCounts: response.data.reactionCounts

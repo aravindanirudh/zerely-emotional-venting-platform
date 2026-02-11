@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  // Login function that calls the authService login method, handles the response, and updates the user state and localStorage with the token. It also includes robust handling for different API response structures to ensure compatibility with both successful and failed interceptor scenarios.
   const login = async (email, password) => {
     try {
       const response = await authService.login(email, password);
@@ -49,6 +50,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Register function that calls the authService register method, handles the response, and updates the user state and localStorage with the token. Similar to login, it includes robust handling for different API response structures to ensure compatibility with both successful and failed interceptor scenarios. It automatically logs in the user upon successful registration by storing the token and user data. If registration fails, it throws an error to be handled by the calling component.
   const register = async (anonymousName, email, password) => {
     try {
       const response = await authService.register(anonymousName, email, password);
@@ -71,15 +73,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Logout function that clears the authentication token from localStorage and resets the user state to null, effectively logging the user out of the application.
   const logout = () => {
     localStorage.removeItem('exhale_token');
     setUser(null);
   };
 
+  // Function to update the user's token balance in the context. It takes the new balance as an argument and updates the user state with the new token balance while preserving other user information. This allows components that consume the AuthContext to reflect changes in the user's token balance in real-time without needing to refetch user data from the server.
   const updateTokens = (newBalance) => {
     setUser(prev => prev ? ({ ...prev, tokens: newBalance }) : null);
   };
 
+  // The AuthContext.Provider component wraps the children components and provides them with the authentication state and functions. It only renders the children when the loading state is false, ensuring that the authentication status is determined before any child components attempt to access it. The context value includes the user object, loading status, authentication functions (login, register, logout), a function to update tokens, and boolean flags for authentication and admin status.
   return (
     <AuthContext.Provider value={{ 
       user, 
@@ -96,6 +101,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// Custom hook to consume the AuthContext. It checks if the context is available and throws an error if it's used outside of the AuthProvider. This ensures that components using this hook have access to the authentication context and can utilize the provided state and functions for managing user authentication throughout the application.
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

@@ -8,9 +8,10 @@ import { Loader2, ArrowLeft } from 'lucide-react'; // Icon components from the L
 import { Link } from 'react-router-dom'; // React Router component for creating links that navigate to different routes in the application (for example, "Back to Wall" link)
 
 const CreatePostPage = () => {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Hook for navigating to different routes programmatically (for example used after successful post creation to go back to the wall)
+  const { user } = useAuth(); // Current authenticated user object extracted from AuthContext
+  const [loading, setLoading] = useState(false); // State variable to track whether the form submission is in progress, used to disable the submit button and show a loading spinner
+  // State variable to hold the form data for creating a new post, including title, content, selected mood, and auto-delete settings
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -21,14 +22,18 @@ const CreatePostPage = () => {
     }
   });
 
+  // Function to handle form submission when the user tries to create a new post. It validates the input, sends the data to the server, and handles success or error responses.
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.mood) {
+    e.preventDefault(); // Prevent the default form submission behavior (which would cause a page reload)
+    // Validation: Ensure that the user has selected a mood before allowing the post to be created. If no mood is selected, show an error toast and stop the submission process.
+    if (!formData.mood) { 
       return toast.error('Please select a mood that represents how you feel');
     }
     
+    // Set loading state to true to indicate that the form submission is in progress, which can be used to disable the submit button and show a loading spinner
     setLoading(true);
     try {
+      // Make an API call to create a new post using the postService. The formData is spread into the request body, and the autoDelete field is conditionally included only if it is enabled.
       const response = await postService.createPost({
         ...formData,
         autoDelete: formData.autoDelete.enabled ? formData.autoDelete : undefined
@@ -39,14 +44,17 @@ const CreatePostPage = () => {
     } catch (error) {
        toast.error(error.message || 'Failed to create post');
     } finally {
-      setLoading(false);
+      setLoading(false); // Reset loading state to false after the API call is completed, regardless of success or failure (finally block ensures this runs irrespective of whether an error occurred or if the request was successful)
     }
   };
 
+  // Determine the color associated with the selected mood to style the mood selector or other UI elements accordingly. It looks up the selected mood in the MOODS array and retrieves its color, defaulting to a gray color if no mood is selected.
+  // '?.' is optional chaining, which safely accesses the color property of the mood object if it exists, and if not, it will return undefined, allowing the fallback to 'text-gray-500' to be used.
   const selectedMoodColor = MOODS.find(m => m.id === formData.mood)?.color || 'text-gray-500';
 
   return (
     <div className="max-w-2xl mx-auto py-8">
+      {/* Link to wall after posting */}
       <Link to="/wall" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6">
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to Wall

@@ -1,21 +1,24 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext'; // Custom hook for authentication
 import { toast } from 'sonner';
 
 const LoginPage = () => {
+  // State object storing email and password inputs
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-  const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // State to manage loading status during login
+  const { login } = useAuth(); // Destructured authentication function from context
+  const navigate = useNavigate(); // Hook/function to programmatically navigate to different routes
 
+  // Updates form data when user types in inputs. Spreads existing formData and updates the specific field using computed property name ([e.target.name])
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handles form submission for login. Prevents default form submission behavior, sets loading state to true, and attempts to log in using the provided email and password. If successful, shows a success toast and navigates to the wall page. If there's an error, shows an error toast. Finally, it resets the loading state.
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);

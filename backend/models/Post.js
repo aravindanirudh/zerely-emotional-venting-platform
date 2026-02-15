@@ -10,7 +10,7 @@ const reactionSchema = new mongoose.Schema(
     emoji: {
       type: String,
       required: true,
-      enum: ["❤️", "🤗", "😢", "😡", "💪", "🙏"],
+      enum: ["❤️"],
     },
   },
   { _id: false },
@@ -51,11 +51,6 @@ const postSchema = new mongoose.Schema({
   reactions: [reactionSchema],
   reactionCounts: {
     "❤️": { type: Number, default: 0 },
-    "🤗": { type: Number, default: 0 },
-    "😢": { type: Number, default: 0 },
-    "😡": { type: Number, default: 0 },
-    "💪": { type: Number, default: 0 },
-    "🙏": { type: Number, default: 0 },
   },
   commentCount: {
     type: Number,

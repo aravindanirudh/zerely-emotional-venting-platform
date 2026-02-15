@@ -41,6 +41,12 @@ const Navbar = () => {
               >
                 About
               </Link>
+              <Link
+                to="/legal"
+                className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent font-medium text-gray-500 dark:hover:text-black dark:text-gray-400 transition duration-250 hover:bg-white rounded-md"
+              >
+                Legal
+              </Link>
             </div>
           </div>
 
@@ -133,6 +139,12 @@ const Navbar = () => {
               className="block pl-4 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-white rounded-md"
             >
               About
+            </Link>
+            <Link
+              to="/legal"
+              className="block pl-4 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-white rounded-md"
+            >
+              Legal
             </Link>
           </div>
           <div className="pt-4 pb-4 border-t border-gray-200 dark:border-dark-border">

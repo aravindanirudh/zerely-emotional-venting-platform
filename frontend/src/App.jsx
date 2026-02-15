@@ -5,6 +5,7 @@ import VentingWallPage from "./pages/VentingWallPage";
 import Navbar from "./components/common/Navbar";
 import CreatePostPage from "./pages/CreatePostPage";
 import About from "./pages/About";
+import LegalPage from "./pages/LegalPage";
 
 import PostDetailPage from "./pages/PostDetailPage";
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/wall" element={<VentingWallPage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/legal" element={<LegalPage />} />
             <Route
               path="/create-post"
               element={

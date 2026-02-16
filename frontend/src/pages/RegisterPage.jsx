@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { toast } from 'sonner';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { toast } from "sonner";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
-    anonymousName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    anonymousName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
   const { register } = useAuth();
@@ -21,16 +21,16 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      return toast.error('Passwords do not match');
+      return toast.error("Passwords do not match");
     }
-    
+
     setLoading(true);
     try {
       await register(formData.anonymousName, formData.email, formData.password);
-      toast.success('Registration successful! Welcome to Exhale.');
-      navigate('/wall');
+      toast.success("Registration successful! Welcome to Zerely.");
+      navigate("/wall");
     } catch (error) {
-      toast.error(error.message || 'Registration failed');
+      toast.error(error.message || "Registration failed");
     } finally {
       setLoading(false);
     }
@@ -43,8 +43,11 @@ const RegisterPage = () => {
           Create anonymous account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-          Or{' '}
-          <Link to="/login" className="font-medium text-primary-600 hover:text-primary-500">
+          Or{" "}
+          <Link
+            to="/login"
+            className="font-medium text-primary-600 hover:text-primary-500"
+          >
             sign in to existing account
           </Link>
         </p>
@@ -54,7 +57,10 @@ const RegisterPage = () => {
         <div className="bg-white dark:bg-dark-card py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-gray-100 dark:border-dark-border">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="anonymousName" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="anonymousName"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >
                 Anonymous Name
               </label>
               <div className="mt-1">
@@ -69,11 +75,16 @@ const RegisterPage = () => {
                   placeholder="e.g. SilentWanderer"
                 />
               </div>
-              <p className="mt-1 text-xs text-gray-500">This is how you will appear to others.</p>
+              <p className="mt-1 text-xs text-gray-500">
+                This is how you will appear to others.
+              </p>
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >
                 Email address
               </label>
               <div className="mt-1">
@@ -88,11 +99,16 @@ const RegisterPage = () => {
                   className="input-field"
                 />
               </div>
-              <p className="mt-1 text-xs text-gray-500">Only for login and account recovery. Never shared.</p>
+              <p className="mt-1 text-xs text-gray-500">
+                Only for login and account recovery. Never shared.
+              </p>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >
                 Password
               </label>
               <div className="mt-1">
@@ -109,7 +125,10 @@ const RegisterPage = () => {
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >
                 Confirm Password
               </label>
               <div className="mt-1">
@@ -131,7 +150,7 @@ const RegisterPage = () => {
                 disabled={loading}
                 className="w-full flex justify-center py-2 px-4 btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? 'Creating account...' : 'Create Account'}
+                {loading ? "Creating account..." : "Create Account"}
               </button>
             </div>
           </form>

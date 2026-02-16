@@ -17,7 +17,7 @@ const LegalPage = () => {
               1. Acceptance of Terms
             </h3>
             <p>
-              By accessing and using Exhale ("the Platform"), you accept and
+              By accessing and using Zerely ("the Platform"), you accept and
               agree to be bound by the terms and provision of this agreement.
             </p>
 
@@ -46,7 +46,7 @@ const LegalPage = () => {
             </h3>
             <p>
               The Platform is provided on an "AS IS" basis. The creators and
-              administrators of Exhale are <strong>not responsible</strong> for
+              administrators of Zerely are <strong>not responsible</strong> for
               any content posted by users. We do not guarantee the accuracy,
               integrity, or quality of any content. You understand that by using
               the Platform, you may be exposed to content that is offensive or

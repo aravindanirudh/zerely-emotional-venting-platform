@@ -1,6 +1,6 @@
-# Exhale Deployment Guide
+# Zerely Deployment Guide
 
-Since **Exhale** is a full-stack application (React Frontend + Node.js Backend), you need to deploy them separately.
+Since **Zerely** is a full-stack application (React Frontend + Node.js Backend), you need to deploy them separately.
 
 ## 1. Deploy Backend (Node.js/Express)
 Vercel is optimized for Frontends. For the Backend, use **Render** or **Railway** (Both have free tiers).
@@ -30,7 +30,7 @@ Vercel is optimized for Frontends. For the Backend, use **Render** or **Railway*
 7.  Click **Deploy**.
 
 ## 3. Final Connection
-1.  Once Vercel finishes, copy your new Frontend URL (e.g., `https://exhale-frontend.vercel.app`).
+1.  Once Vercel finishes, copy your new Frontend URL (e.g., `https://zerely-frontend.vercel.app`).
 2.  Go back to your **Backend Dashboard** (Render/Railway).
 3.  Update the `FRONTEND_URL` variable with this new link.
 4.  Redeploy the Backend if necessary (usually happens automatically).

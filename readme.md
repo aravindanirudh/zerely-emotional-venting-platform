@@ -1,12 +1,13 @@
-# Exhale - Anonymous Emotional Venting Platform
+# Zerely - Anonymous Emotional Venting Platform
 
-![Exhale Icon](frontend/public/favicon.ico)
+![Zerely Icon](frontend/public/favicon.ico)
 
-**Exhale** is a safe, anonymous space where you can pour your heart out without fear of judgment. It is a full-stack web application designed to help users express their emotions, receive support from the community, and find relief through anonymous sharing.
+**Zerely** is a safe, anonymous space where you can pour your heart out without fear of judgment. It is a full-stack web application designed to help users express their emotions, receive support from the community, and find relief through anonymous sharing.
 
 > "A problem shared is a problem halved."
 
 - Note: Documentation/code explanations are provided as comments. For uniformity and to follow standard procedures, comments exist even for the most basic lines of code (such as imports). Tense/grammar might be messed up in the documentation but, please ignore it!
+- Note: This platform was earlier called 'Exhale' but for prevention of legal hassles, it was changed to 'Zerely'.
 
 ## 🚀 Features
 
@@ -54,8 +55,8 @@ Cloning the repository and setting up the project takes just a few minutes.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aravindanirudh/exhale-emotional-venting-website.git
-cd exhale-website
+git clone https://github.com/aravindanirudh/zerely-emotional-venting-website.git
+cd zerely-emotional-venting-website
 ```
 
 ### 2. Backend Setup
@@ -71,7 +72,7 @@ Create a `.env` file in the `backend` directory with the following variables:
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/exhale_db  # Or your MongoDB Atlas URI
+MONGODB_URI=mongodb://localhost:27017/zerely  # Or your MongoDB Atlas URI
 JWT_SECRET=your_super_secret_jwt_key_here
 FRONTEND_URL=http://localhost:5173
 NODE_ENV=development
@@ -109,7 +110,7 @@ npm run dev
 ## 📂 Project Structure
 
 ```text
-exhale-website/
+zerely-website/
 ├── backend/                 # Node.js/Express backend
 │   ├── config/              # Database connection file
 │   ├── controllers/         # Request logic - each controller processes incoming data, interacts with models, and sends responses back to the client
@@ -155,7 +156,7 @@ exhale-website/
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you'd like to improve Exhale, please follow these steps:
+Contributions are welcome! If you'd like to improve Zerely, please follow these steps:
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)

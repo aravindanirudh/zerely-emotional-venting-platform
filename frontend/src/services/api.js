@@ -1,20 +1,22 @@
 // This file creates and configures an Axios instance for making HTTP requests to the backend API. It sets the base URL, default headers, and includes interceptors to handle authentication tokens and response errors globally
-import axios from 'axios'; // Brings in the Axios library for HTTP requests
+import axios from "axios"; // Brings in the Axios library for HTTP requests
 
 // Create a custom Axios instance with predefined configuration
 // The 'baseURL' sets base URL for all API calls and is set to an environment variable (VITE_API_BASE_URL) or defaults to the current hostname on port 5000
 // 'headers' sets default headers for all requests, specifying JSON content type
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || `http://${window.location.hostname}:5000/api`,
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ||
+    `http://${window.location.hostname}:5000/api`,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    "Content-Type": "application/json",
+  },
 });
 
 // Request interceptor intercepts all outgoing requests before they are sent to automatically include the authentication token in the Authorization header (the Bearer thingy) for all outgoing requests
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("exhale_token"); // Retrieve the authentication token from localStorage with key 'exhale_token'
+    const token = localStorage.getItem("zerely_token"); // Retrieve the authentication token from localStorage with key 'zerely_token'
     if (token) {
       config.headers.Authorization = `Bearer ${token}`; // If a token exists, adds it to the request headers as a Bearer token
     }
@@ -31,7 +33,7 @@ api.interceptors.response.use(
   (error) => {
     // Check if the error status is 401 (Unauthorized)
     if (error.response?.status === 401) {
-      localStorage.removeItem("exhale_token"); // If unauthorized, remove the token from localStorage
+      localStorage.removeItem("zerely_token"); // If unauthorized, remove the token from localStorage
       // Redirect to login if not already on the login page
       if (!window.location.pathname.includes("/login")) {
         window.location.href = "/login";
@@ -71,6 +73,6 @@ export default api;
 // With Promise.all (Parallel - faster):
 // const [statsRes, usersRes] = await Promise.all([
 //   api.get('/admin/stats'),    // Both start at same time
-//   api.get('/admin/users')     
+//   api.get('/admin/users')
 // ]);
 // // Total time: 500ms (whichever takes longer)

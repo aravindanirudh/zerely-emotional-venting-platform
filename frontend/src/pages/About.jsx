@@ -19,14 +19,6 @@ const About = () => {
               themselves.
               <br />
               <br />
-              'The Contract' is an imaginary arc that changed everything for its
-              creator, Aravind A Kamath. For years, ideas were trapped behind
-              overthinking - perfection delaying progress, paralysis by analysis. Until one moment forced a decision: stop waiting, stop
-              hesitating, and start building. Zerely
-              is the result of that arc - proof that the hardest step is
-              simply beginning.
-              <br />
-              <br />
               Sometimes all it takes is one decision to change your life. So
               take a breath. And when you're ready - experience Zerely!
             </p>

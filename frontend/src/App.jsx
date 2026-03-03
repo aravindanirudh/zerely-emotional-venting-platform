@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 flex flex-col">
       <Navbar />
-      <main className="grow">
+      <main className="grow flex flex-col">
         <Routes>
           {/* Full width HomePage */}
           <Route path="/" element={<HomePage />} />

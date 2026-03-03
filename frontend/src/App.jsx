@@ -22,8 +22,20 @@ const AdminRoute = ({ children }) => {
   return user && user.role === "admin" ? children : <Navigate to="/" />;
 };
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import { useEffect } from "react";
+
+// Automatically scrolls to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 // Layout for pages that require the standard container
 const MainLayout = () => (
@@ -35,6 +47,7 @@ const MainLayout = () => (
 function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 flex flex-col">
+      <ScrollToTop />
       <Navbar />
       <main className="grow flex flex-col">
         <Routes>

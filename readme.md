@@ -6,14 +6,11 @@
 
 > "A problem shared is a problem halved."
 
-- Note: Documentation/code explanations are provided as comments. For uniformity and to follow standard procedures, comments exist even for the most basic lines of code (such as imports). Tense/grammar might be messed up in the documentation but, please ignore it!
-- Note: This platform was earlier called 'Exhale' but for prevention of legal hassles, it was changed to 'Zerely'.
-
 ## 🚀 Features
 
 - **Anonymous Venting**: Share your thoughts and feelings without revealing your identity.
 - **Mood Tagging**: Categorize your posts by mood (Happy, Sad, Angry, Anxious, etc.) to help others understand your state of mind.
-- **Community Support**: Receive supportive reactions (❤️, 🤗, 💪) and comments from empathetic users.
+- **Community Support**: Receive supportive reactions (❤️) and comments from empathetic users.
 - **Auto-Deletion**: Optional self-destruct timer for posts (1h, 24h, etc.) for enhanced privacy.
 - **Token System**: Earn virtual tokens for engaging with the community (posting, commenting, reacting).
 - **Safe Environment**: Moderation tools to keep the community positive and supportive.
